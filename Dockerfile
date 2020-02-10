@@ -1,4 +1,4 @@
-FROM centos
+FROM prairielearn/centos7-python
 MAINTAINER Vagner Rodrigues Fernandes (vagner.rodrigues@gmail.com)
 # Project forked from https://github.com/Aidaho12/haproxy-wi
 
@@ -57,7 +57,7 @@ RUN yum -y erase \
         rm -f /etc/yum.repos.d/*
 
 # Python link
-RUN ln -s /usr/bin/python3.5 /usr/bin/python3
+RUN rm -rf /usr/bin/python3 && ln -s /usr/bin/python3.5 /usr/bin/python3
 
 # Build sqlite database
 RUN cd /var/www/haproxy-wi/app && \
